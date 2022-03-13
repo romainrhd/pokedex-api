@@ -1,12 +1,11 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { PokemonsController } from './pokemons/pokemons.controller';
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { PokemonsService } from './pokemons/pokemons.service';
+import { PokemonsController } from './pokemons/pokemons.controller';
 
 @Module({
-  imports: [],
-  controllers: [AppController, PokemonsController],
-  providers: [AppService, PokemonsService],
+  imports: [TypeOrmModule.forRoot()],
+  controllers: [PokemonsController],
+  providers: [PokemonsService],
 })
 export class AppModule {}
