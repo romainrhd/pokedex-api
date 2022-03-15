@@ -6,9 +6,9 @@
     "password": "romain",
     "database": "pokedex",
     "entities": ["dist/**/*.entity{.ts,.js}"],
-    "synchronize": true,
-    "migrations": ["migrations/*.js"],
+    "synchronize": false,
+    "migrations": ["dist/migrations/*.js"],
       "cli": {
-        "migrationsDir": "migrations"
+        "migrationsDir": "src/migrations"
     }
   }
