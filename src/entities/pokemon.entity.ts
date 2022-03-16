@@ -1,10 +1,14 @@
-import { Column, Entity, PrimaryColumn } from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryColumn } from 'typeorm';
+import { Appearance } from './appearance.entity';
 
 @Entity()
 export class Pokemon {
   @PrimaryColumn()
-  number: string;
+  nationalNumber: string;
 
   @Column()
   name: string;
+
+  @OneToMany(() => Appearance, (appearance) => appearance.pokemon)
+  appearances: Appearance[];
 }

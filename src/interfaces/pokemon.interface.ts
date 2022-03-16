@@ -1,4 +1,7 @@
+import { Appearance } from 'src/entities/appearance.entity';
+
 export interface Pokemon {
-  number: string;
+  nationalNumber: string;
   name: string;
+  appearances: Appearance[];
 }
