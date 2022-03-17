@@ -1,5 +1,6 @@
 type Query {
     pokemons: [Pokemon]
+    pokemon(nationalNumber: String!): Pokemon
 }
 
 type Pokemon {

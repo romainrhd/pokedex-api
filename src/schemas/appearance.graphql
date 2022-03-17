@@ -1,5 +1,6 @@
 type Query {
     appearances: [Appearance]
+    appearance(id: Int!): Appearance
 }
 
 type Appearance {
