@@ -5,6 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Pokemon } from './entities/pokemon.entity';
 import { Appearance } from './entities/appearance.entity';
 import { PokemonsService } from './pokemons/pokemons.service';
+import { PokemonResolver } from './resolvers/pokemon.resolver';
 import { PokemonsController } from './pokemons/pokemons.controller';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 
@@ -22,6 +23,6 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
     TypeOrmModule.forFeature([Appearance, Pokemon]),
   ],
   controllers: [PokemonsController],
-  providers: [PokemonsService],
+  providers: [PokemonsService, PokemonResolver],
 })
 export class AppModule {}

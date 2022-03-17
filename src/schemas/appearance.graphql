@@ -1,0 +1,9 @@
+type Query {
+    appearances: [Appearance]
+}
+
+type Appearance {
+    id: Int
+    name: String
+    pokemon: Pokemon
+}
