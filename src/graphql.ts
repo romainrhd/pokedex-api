@@ -15,7 +15,7 @@ export abstract class IQuery {
 
 export class Appearance {
     id?: Nullable<number>;
-    name?: Nullable<string>;
+    image?: Nullable<string>;
     pokemon?: Nullable<Pokemon>;
 }
 

@@ -11,6 +11,6 @@ export class PokemonsService {
   ) {}
 
   findAll(): Promise<Pokemon[]> {
-    return this.pokemonsRepository.find();
+    return this.pokemonsRepository.find({ relations: ['appearances'] });
   }
 }

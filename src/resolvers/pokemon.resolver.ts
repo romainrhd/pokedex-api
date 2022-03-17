@@ -1,5 +1,5 @@
 import { Query, Resolver } from '@nestjs/graphql';
-import { PokemonsService } from '../pokemons/pokemons.service';
+import { PokemonsService } from '../services/pokemons.service';
 
 @Resolver('Pokemon')
 export class PokemonResolver {

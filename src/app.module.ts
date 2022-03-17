@@ -4,10 +4,11 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Pokemon } from './entities/pokemon.entity';
 import { Appearance } from './entities/appearance.entity';
-import { PokemonsService } from './pokemons/pokemons.service';
+import { PokemonsService } from './services/pokemons.service';
 import { PokemonResolver } from './resolvers/pokemon.resolver';
-import { PokemonsController } from './pokemons/pokemons.controller';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
+import { AppearancesService } from './services/appearances.service';
+import { AppearanceResolver } from './resolvers/appearance.resolver';
 
 @Module({
   imports: [
@@ -22,7 +23,11 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
     TypeOrmModule.forRoot(),
     TypeOrmModule.forFeature([Appearance, Pokemon]),
   ],
-  controllers: [PokemonsController],
-  providers: [PokemonsService, PokemonResolver],
+  providers: [
+    AppearancesService,
+    PokemonsService,
+    PokemonResolver,
+    AppearanceResolver,
+  ],
 })
 export class AppModule {}

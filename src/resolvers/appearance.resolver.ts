@@ -1,13 +1,12 @@
-// TODO : adapter le code pour les apparances
 import { Query, Resolver } from '@nestjs/graphql';
-import { PokemonsService } from '../pokemons/pokemons.service';
+import { AppearancesService } from '../services/appearances.service';
 
-@Resolver('Pokemon')
-export class PokemonResolver {
-  constructor(private readonly pokemonsService: PokemonsService) {}
+@Resolver('Appearance')
+export class AppearanceResolver {
+  constructor(private readonly appearancesService: AppearancesService) {}
 
-  @Query('pokemons')
+  @Query('appearances')
   getPokemons() {
-    return this.pokemonsService.findAll();
+    return this.appearancesService.findAll();
   }
 }
