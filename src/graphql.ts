@@ -7,20 +7,16 @@
 
 /* tslint:disable */
 /* eslint-disable */
-export abstract class IQuery {
-    abstract appearances(): Nullable<Nullable<Appearance>[]> | Promise<Nullable<Nullable<Appearance>[]>>;
-
-    abstract appearance(id: number): Nullable<Appearance> | Promise<Nullable<Appearance>>;
-
-    abstract pokemons(): Nullable<Nullable<Pokemon>[]> | Promise<Nullable<Nullable<Pokemon>[]>>;
-
-    abstract pokemon(nationalNumber: string): Nullable<Pokemon> | Promise<Nullable<Pokemon>>;
-}
-
 export class Appearance {
     id?: Nullable<number>;
     image?: Nullable<string>;
     pokemon?: Nullable<Pokemon>;
+}
+
+export abstract class IQuery {
+    abstract pokemons(): Nullable<Nullable<Pokemon>[]> | Promise<Nullable<Nullable<Pokemon>[]>>;
+
+    abstract pokemon(nationalNumber: string): Nullable<Pokemon> | Promise<Nullable<Pokemon>>;
 }
 
 export class Pokemon {
