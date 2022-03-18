@@ -13,4 +13,10 @@ export class PokemonsService {
   findAll(): Promise<Pokemon[]> {
     return this.pokemonsRepository.find({ relations: ['appearances'] });
   }
+
+  findOneByNationalNumber(nationalNumber: string): Promise<Pokemon> {
+    return this.pokemonsRepository.findOne(nationalNumber, {
+      relations: ['appearances'],
+    });
+  }
 }

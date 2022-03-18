@@ -7,8 +7,6 @@ import { Appearance } from './entities/appearance.entity';
 import { PokemonsService } from './services/pokemons.service';
 import { PokemonResolver } from './resolvers/pokemon.resolver';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
-import { AppearancesService } from './services/appearances.service';
-import { AppearanceResolver } from './resolvers/appearance.resolver';
 
 @Module({
   imports: [
@@ -23,11 +21,6 @@ import { AppearanceResolver } from './resolvers/appearance.resolver';
     TypeOrmModule.forRoot(),
     TypeOrmModule.forFeature([Appearance, Pokemon]),
   ],
-  providers: [
-    AppearancesService,
-    PokemonsService,
-    PokemonResolver,
-    AppearanceResolver,
-  ],
+  providers: [PokemonsService, PokemonResolver],
 })
 export class AppModule {}
