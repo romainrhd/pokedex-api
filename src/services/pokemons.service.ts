@@ -19,4 +19,12 @@ export class PokemonsService {
       relations: ['appearances'],
     });
   }
+
+  create(nationalNumber: string, name: string): Promise<Pokemon> {
+    const pokemon: Pokemon = new Pokemon();
+    pokemon.nationalNumber = nationalNumber;
+    pokemon.name = name;
+
+    return this.pokemonsRepository.save(pokemon);
+  }
 }

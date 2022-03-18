@@ -19,6 +19,10 @@ export abstract class IQuery {
     abstract pokemon(nationalNumber: string): Nullable<Pokemon> | Promise<Nullable<Pokemon>>;
 }
 
+export abstract class IMutation {
+    abstract createPokemon(nationalNumber: string, name: string): Nullable<Pokemon> | Promise<Nullable<Pokemon>>;
+}
+
 export class Pokemon {
     nationalNumber?: Nullable<string>;
     name?: Nullable<string>;

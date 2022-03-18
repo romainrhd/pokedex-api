@@ -1,4 +1,4 @@
-import { Args, Query, Resolver } from '@nestjs/graphql';
+import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { Pokemon } from 'src/graphql';
 import { PokemonsService } from '../services/pokemons.service';
 
@@ -17,5 +17,13 @@ export class PokemonResolver {
     nationalNumber: string,
   ): Promise<Pokemon> {
     return this.pokemonsService.findOneByNationalNumber(nationalNumber);
+  }
+
+  @Mutation('createPokemon')
+  create(
+    @Args('nationalNumber') nationalNumber: string,
+    @Args('name') name: string,
+  ): Promise<Pokemon> {
+    return this.pokemonsService.create(nationalNumber, name);
   }
 }

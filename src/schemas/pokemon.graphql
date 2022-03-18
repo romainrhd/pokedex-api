@@ -3,6 +3,10 @@ type Query {
     pokemon(nationalNumber: String!): Pokemon
 }
 
+type Mutation {
+    createPokemon(nationalNumber: String!, name: String!): Pokemon
+}
+
 type Pokemon {
     nationalNumber: String
     name: String
