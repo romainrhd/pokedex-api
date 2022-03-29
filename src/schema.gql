@@ -1,0 +1,26 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+"""appearance"""
+type Appearance {
+  id: ID!
+  image: String!
+  pokemon: Pokemon!
+}
+
+"""pokemon"""
+type Pokemon {
+  nationalNumber: ID!
+  name: String!
+  appearances: [Appearance!]!
+}
+
+type Query {
+  pokemons: [Pokemon!]!
+  pokemon(nationalNumber: String!): Pokemon!
+}
+
+type Mutation {
+  createPokemon(nationalNumber: String!, name: String!): Pokemon!
+}

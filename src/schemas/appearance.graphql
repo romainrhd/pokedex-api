@@ -1,5 +1,0 @@
-type Appearance {
-    id: Int
-    image: String
-    pokemon: Pokemon
-}
