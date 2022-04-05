@@ -14,6 +14,6 @@ export class Pokemon {
   name: string;
 
   @OneToMany(() => Appearance, (appearance) => appearance.pokemon)
-  @Field(type => [Appearance])
+  @Field(type => [Appearance], { nullable: 'items' })
   appearances: Appearance[];
 }

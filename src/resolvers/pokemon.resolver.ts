@@ -1,8 +1,9 @@
 import { Pokemon } from '../entities/pokemon.entity';
+import { NewPokemonInput } from '../dto/new-pokemon.input';
 import { PokemonsService } from '../services/pokemons.service';
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 
-@Resolver((of) => Pokemon)
+@Resolver(of => Pokemon)
 export class PokemonResolver {
   constructor(private readonly pokemonsService: PokemonsService) {}
 
@@ -21,9 +22,8 @@ export class PokemonResolver {
 
   @Mutation(returns => Pokemon)
   createPokemon(
-    @Args('nationalNumber') nationalNumber: string,
-    @Args('name') name: string,
+    @Args('newPokemonData') newPokemonData: NewPokemonInput,
   ): Promise<Pokemon> {
-    return this.pokemonsService.create(nationalNumber, name);
+    return this.pokemonsService.create(newPokemonData);
   }
 }

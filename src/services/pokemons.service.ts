@@ -2,6 +2,7 @@ import { Repository } from 'typeorm';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Pokemon } from 'src/entities/pokemon.entity';
+import { NewPokemonInput } from 'src/dto/new-pokemon.input';
 
 @Injectable()
 export class PokemonsService {
@@ -20,10 +21,10 @@ export class PokemonsService {
     });
   }
 
-  create(nationalNumber: string, name: string): Promise<Pokemon> {
+  create(newPokemon: NewPokemonInput): Promise<Pokemon> {
     const pokemon: Pokemon = new Pokemon();
-    pokemon.nationalNumber = nationalNumber;
-    pokemon.name = name;
+    pokemon.nationalNumber = newPokemon.nationalNumber;
+    pokemon.name = newPokemon.name;
 
     return this.pokemonsRepository.save(pokemon);
   }

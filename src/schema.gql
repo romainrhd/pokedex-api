@@ -7,13 +7,14 @@ type Appearance {
   id: ID!
   image: String!
   pokemon: Pokemon!
+  shiny: Appearance!
 }
 
 """pokemon"""
 type Pokemon {
   nationalNumber: ID!
   name: String!
-  appearances: [Appearance!]!
+  appearances: [Appearance]!
 }
 
 type Query {
@@ -22,5 +23,10 @@ type Query {
 }
 
 type Mutation {
-  createPokemon(nationalNumber: String!, name: String!): Pokemon!
+  createPokemon(newPokemonData: NewPokemonInput!): Pokemon!
+}
+
+input NewPokemonInput {
+  nationalNumber: String!
+  name: String!
 }
