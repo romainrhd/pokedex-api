@@ -1,0 +1,33 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Pokemon {
+  """Id of Pokémon"""
+  id: ID!
+
+  """Name of Pokémon"""
+  name: String!
+}
+
+type Query {
+  pokemons: [Pokemon!]!
+  pokemon(id: Int!): Pokemon!
+}
+
+type Mutation {
+  createPokemon(createPokemonInput: CreatePokemonInput!): Pokemon!
+  updatePokemon(updatePokemonInput: UpdatePokemonInput!): Pokemon!
+  removePokemon(id: Int!): Pokemon!
+}
+
+input CreatePokemonInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input UpdatePokemonInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
+}
