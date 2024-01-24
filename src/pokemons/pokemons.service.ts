@@ -12,8 +12,10 @@ export class PokemonsService {
     private pokemonRepository: Repository<Pokemon>,
   ) {}
 
-  create(createPokemonInput: CreatePokemonInput) {
-    return 'This action adds a new pokemon';
+  create(createPokemonInput: CreatePokemonInput): Promise<Pokemon> {
+    const pokemon: Pokemon = new Pokemon();
+    pokemon.name = createPokemonInput.name;
+    return this.pokemonRepository.save(pokemon);
   }
 
   findAll(): Promise<Pokemon[]> {
@@ -21,14 +23,21 @@ export class PokemonsService {
   }
 
   findOne(id: number): Promise<Pokemon> | null {
-    return this.pokemonRepository.findOneBy({ id });
+    return this.pokemonRepository.findOneByOrFail({ id });
   }
 
-  update(id: number, updatePokemonInput: UpdatePokemonInput) {
-    return `This action updates a #${id} pokemon`;
+  async update(
+    id: number,
+    updatePokemonInput: UpdatePokemonInput,
+  ): Promise<Pokemon> {
+    const pokemon: Pokemon = await this.pokemonRepository.findOneByOrFail({
+      id,
+    });
+    pokemon.name = updatePokemonInput.name;
+    return this.pokemonRepository.save(pokemon);
   }
 
-  async remove(id: number): Promise<void> {
+  async remove(id: number): Promise<boolean> {
     await this.pokemonRepository.delete(id);
   }
 }

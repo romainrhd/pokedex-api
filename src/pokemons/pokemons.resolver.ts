@@ -9,7 +9,9 @@ export class PokemonsResolver {
   constructor(private readonly pokemonsService: PokemonsService) {}
 
   @Mutation(() => Pokemon)
-  createPokemon(@Args('createPokemonInput') createPokemonInput: CreatePokemonInput) {
+  createPokemon(
+    @Args('createPokemonInput') createPokemonInput: CreatePokemonInput,
+  ) {
     return this.pokemonsService.create(createPokemonInput);
   }
 
@@ -24,11 +26,16 @@ export class PokemonsResolver {
   }
 
   @Mutation(() => Pokemon)
-  updatePokemon(@Args('updatePokemonInput') updatePokemonInput: UpdatePokemonInput) {
-    return this.pokemonsService.update(updatePokemonInput.id, updatePokemonInput);
+  updatePokemon(
+    @Args('updatePokemonInput') updatePokemonInput: UpdatePokemonInput,
+  ) {
+    return this.pokemonsService.update(
+      updatePokemonInput.id,
+      updatePokemonInput,
+    );
   }
 
-  @Mutation(() => Pokemon)
+  @Mutation(() => Boolean)
   removePokemon(@Args('id', { type: () => Int }) id: number) {
     return this.pokemonsService.remove(id);
   }

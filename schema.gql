@@ -18,16 +18,14 @@ type Query {
 type Mutation {
   createPokemon(createPokemonInput: CreatePokemonInput!): Pokemon!
   updatePokemon(updatePokemonInput: UpdatePokemonInput!): Pokemon!
-  removePokemon(id: Int!): Pokemon!
+  removePokemon(id: Int!): Boolean!
 }
 
 input CreatePokemonInput {
-  """Example field (placeholder)"""
-  exampleField: Int!
+  name: String!
 }
 
 input UpdatePokemonInput {
-  """Example field (placeholder)"""
-  exampleField: Int
+  name: String!
   id: Int!
 }
